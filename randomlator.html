@@ -97,7 +97,17 @@
 				document.getElementById("res").innerHTML = aInt + " / " + bInt + " = " + result;
 			}
 
-			//Reset for next input
+			//Resets all Variables that need to be reset
+			reset();
+
+			
+
+		}
+
+
+		//Resets everything so the Programm can start from the beginning
+		function reset(){
+
 			done = true;
 			first= true;
 			a.length = 0;
@@ -106,8 +116,6 @@
 			j = 0;
 			aInt = 0;
 			bInt = 0;
-
-			
 
 		}
 	
