@@ -1,0 +1,155 @@
+<html>
+<head>
+	<title></title>
+	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+
+	
+</head>
+<body>
+	<div>
+	
+		
+		
+		<br>
+		<br>
+		<input id="number" onClick="setValue(this)" type="button" value="1">
+		<input id="number" onClick="setValue(this)" type="button" value="2">
+		<input id="number" onClick="setValue(this)" type="button" value="3">
+		<br>
+		<input id="number" onClick="setValue(this)" type="button" value="4">
+		<input id="number" onClick="setValue(this)" type="button" value="5">
+		<input id="number" onClick="setValue(this)" type="button" value="6">
+		<br>
+		<input id="number" onClick="setValue(this)" type="button" value="7">
+		<input id="number" onClick="setValue(this)" type="button" value="8">
+		<input id="number" onClick="setValue(this)" type="button" value="9">
+		<br>
+		<input id="number" onClick="setValue(this)" type="button" value="0">
+		<input onClick="next()" type="button" value="rand">
+		<input onClick="randomlate(a,b)" type="button" value="=">
+
+
+
+
+		<script type="text/javascript">
+	
+		var result,i = 0, j = 0, first = true, done = false, aInt = 0, bInt = 0;
+
+		a = new Array();
+		b = new Array();
+		
+
+		//Sets the values of a and b equal to the pressed buttons
+		function setValue(number){
+
+
+				//document.getElementById("res").innerHTML += "i: " + i + "j: " + j;
+
+				if(done){
+					document.getElementById("res").innerHTML = "";
+					done = false;
+				}
+
+				//writes integers for a in an array until 'rand' is pressed
+				if(first){
+					a[i] = number.value; 
+					document.getElementById("res").innerHTML += a[i];
+					i++;
+					
+				}
+
+				//writes integers for b in an array until '=' is pressed
+				else {
+					b[j] = number.value; 
+					document.getElementById("res").innerHTML += b[j];
+					j++;
+					
+
+			}
+			
+				
+		}
+			
+
+		
+
+		//a is finished, now define b, prints 'rand' between the numbers
+		//=> the 'rand-button'
+		function next() {
+			first = false
+			document.getElementById("res").innerHTML += " rand ";
+			
+		}
+
+
+		//runs an opertion
+		function randomlate(a,b){
+
+			var aLeng = a.length - 1;
+			var bLeng = b.length - 1;
+
+			//casts a into one int
+			for(var x = 0; x < a.length; x++){
+				aInt += parseInt(a[x]) * Math.pow(10, aLeng--);
+			}
+
+			//casts b into one int
+			for(var y = 0; y < b.length; y++){
+				bInt += parseInt(b[y]) * Math.pow(10, bLeng--);
+			}
+
+			
+			//Randomly choose an operation
+			operation = Math.floor((Math.random()*4));
+			
+
+			if(operation == 0){
+				result = parseInt(aInt) + parseInt(bInt);
+				document.getElementById("res").innerHTML = aInt + " + " + bInt + " = " + result;
+			}
+
+			if(operation == 1){
+				result = parseInt(aInt) - parseInt(bInt);
+				document.getElementById("res").innerHTML = aInt + " - " + bInt + " = " + result;
+			}
+
+			if(operation == 2){
+				result = parseInt(aInt) * parseInt(bInt);
+				document.getElementById("res").innerHTML = aInt + " * " + bInt + " = " + result;
+			}
+
+			if(operation == 3){
+				result = parseInt(aInt) / parseInt(bInt);
+				document.getElementById("res").innerHTML = aInt + " / " + bInt + " = " + result;
+			}
+
+			//Reset for next input
+			done = true;
+			first= true;
+			a.length = 0;
+			b.length = 0;
+			i = 0;
+			j = 0;
+			aInt = 0;
+			bInt = 0;
+
+			
+
+		}
+	
+	
+
+		
+
+	</script>
+
+
+
+
+	</div>
+	<div>
+		<p id="res"></p>
+		
+	</div>
+</body>
+</html>
