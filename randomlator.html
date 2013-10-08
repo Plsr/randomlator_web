@@ -132,13 +132,27 @@
 </head>
 <body>
 	<div id="top_nav">
-		<a href="How does it work?"></a>
-		<a href="Impressum"></a>
-		<a href="About"></a>
+		<ul>
+			<li>
+				<a class ="nav_link" href="">How does it work?</a>
+			</li>
+			<li>
+				<a class ="nav_link" href="">Impressum</a>
+			</li>
+			<li>
+				<a class ="nav_link" href="">About</a>
+			</li>
+		</ul>
+
+	</div>
+
+	<div id="output">
+		<p id="res"></p>
+		
 	</div>
 	
 
-	<div id="randonmlator">
+	<div id="randomlator">
 	
 		
 		
@@ -157,6 +171,7 @@
 		<input id="number" onClick="setValue(this)" type="button" value="9">
 		<br>
 		<input id="number" onClick="setValue(this)" type="button" value="0">
+		<br>∏
 		<input onClick="next()" type="button" value="rand">
 		<input onClick="randomlate(a,b)" type="button" value="=">
 
@@ -169,9 +184,6 @@
 
 
 	</div>
-	<div id="output">
-		<p id="res"></p>
-		
-	</div>
+	
 </body>
 </html>
